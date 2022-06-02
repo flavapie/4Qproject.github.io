@@ -1,0 +1,807 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SaLe-C</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
+
+  <style>
+    .container-fluid {
+      padding: 0px;
+    }
+
+    h2 {
+      font-family: 'Raleway';
+      color: black;
+      margin-top: 23px;
+    }
+
+    .display-4 {
+      padding: 10px 10px;
+    }
+
+    .col-sm-9 {
+      background-color: white;
+      border-radius: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+      font-family: 'Raleway';
+    }
+
+    body {
+      background-repeat: no-repeat;
+    }
+
+    nav {
+      background-color: rgb(243, 197, 192);
+      text-align: center;
+    }
+
+    .navbar-toggler-icon {
+      width: 90px;
+      height: 50px;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .navbar-toggler-icon:hover {
+      background-color: #d9b2ad;
+    }
+
+    .text-sm-start {
+      display: block;
+      padding-top: 8vw;
+      background-image: url('https://getwallpapers.com/wallpaper/full/b/8/1/489068.jpg');
+      background-size: cover;
+      height: 400px;
+    }
+
+    .p-2 {
+      width: 100%;
+      border: 1px solid #e9ecef;
+      border-top-width: .5rem;
+      border-top-color: salmon;
+      margin: 5px;
+      position: relative;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .ptext img {
+      height: 120px;
+    }
+
+    .ptext {
+      height: 320px;
+      width: 100%;
+      font-size: 12px;
+    }
+
+    .addCart {
+      background-color: #f2dad8;
+      border: none;
+      color: black;
+      transition: 0.3s;
+      bottom: 0;
+      font-size: 10px;
+      text-align: center;
+      margin-bottom: 7px;
+    }
+
+    .addCart:hover {
+      background-color: #f3c5c0;
+      color: black;
+      border-width: 0px;
+    }
+
+    #bags {
+      overflow: hidden;
+      transition: height 300ms;
+    }
+
+    #shoes {
+      overflow: hidden;
+      transition: height 300ms;
+    }
+
+    #cooking {
+      overflow: hidden;
+      transition: height 300ms;
+    }
+
+    #apps {
+      overflow: hidden;
+      transition: height 300ms;
+    }
+
+    #navbarNav {
+      overflow: hidden;
+      transition: height 300ms;
+    }
+    .flexD {
+      width: 100%;
+    }
+
+    @media screen and (max-width: 992px) {
+      .ptext {
+        height: 200px;
+      }
+    }
+    
+    ul {
+      list-style-type: none;
+      list-style-position: inside;
+      padding-left: 0;
+    }
+
+    .carthow {
+      overflow: scroll;
+      height: 400px;
+    }
+    .post {
+      padding: 1.25rem;
+      margin-top: 1.25rem;
+      margin-bottom: 1.25rem;
+      border: 1px solid #e9ecef;
+      border-left-width: .25rem;
+      border-radius: .25rem;
+      border-left-color: salmon;
+      margin-right: 5px;
+    }
+  </style>
+
+  <script>
+  var cust_order = [];
+  var bag1 = {
+      prod_name: "Gucci Canvas Boston Bag",
+      prod_price: 25000,
+    };
+  var bag2 = {
+      prod_name: "Jansport Mens City Backpack",
+      prod_price: 3500,
+    };
+  var bag3 = {
+      prod_name: "Prada Tessuto Nylon Shoulder Bag",
+      prod_price: 9500,
+    };
+  var bag4 = {
+      prod_name: "American Flyer Gold Coast Luggage Set",
+      prod_price: 14000,
+    };
+  var bag5 = {
+      prod_name: "Nike Max Air Vapor Power Backpack",
+      prod_price: 1500,
+    };
+  var bag6 = {
+      prod_name: "Coach Ashley Leather Carryall Handbag",
+      prod_price: 1800,
+    };
+  var shoes1 = {
+      prod_name: "Air Jordan 1 Off-White Sneakers",
+      prod_price: 9300,
+    };
+  var shoes2 = {
+      prod_name: "Crocs Crocband Clog",
+      prod_price: 250,
+    };
+  var shoes3 = {
+      prod_name: "Panache Snakeskin Sneakers",
+      prod_price: 3400,
+    };
+  var shoes4 = {
+      prod_name: "Impera Red Bottom High Heels",
+      prod_price: 40000,
+    };
+  var shoes5 = {
+      prod_name: "Yeezy Boost 350 Zebra Sneaker",
+      prod_price: 40000,
+    };
+  var shoes6 = {
+      prod_name: "Avenger Foundation Boots",
+      prod_price: 6800,
+    };
+  
+  var cook1 = {
+      prod_name: "Tefal Everest Non-Stick Frying Pan",
+      prod_price: 2960,
+    };
+  
+  var cook2 = {
+      prod_name: "Vermont Castings Encore Flexburn Stove",
+      prod_price: 220000,
+    };
+  
+  var cook3 = {
+      prod_name: "Manveera Rubber Spatula Set",
+      prod_price: 150,
+    };
+  var cook4 = {
+      prod_name: "Jones Sapele Cutting Board",
+      prod_price: 500,
+    };
+  var cook5 = {
+      prod_name: "Madhu Steel Steamer",
+      prod_price: 2800,
+    };
+  var cook6 = {
+      prod_name: "Gourmet Art Dinnerware Set",
+      prod_price: 5000,
+    };
+  var app1 = {
+      prod_name: "Playstation 5",
+      prod_price: 26300,
+    };
+  var app2 = {
+      prod_name: "Alston Mini Chandeliers",
+      prod_price: 20500,
+    };
+  var app3 = {
+      prod_name: "Samsung Black Stainless Refrigerator",
+      prod_price: 159858,
+    };
+  var app4 = {
+      prod_name: "SONA Portable Aircon",
+      prod_price: 17800,
+    };
+  var app5 = {
+      prod_name: "XBox Series X",
+      prod_price: 25000,
+    };
+   var app6 = {
+      prod_name: "Bath Bliss 8 Function Deluxe Shower Head",
+      prod_price: 945,
+    };
+  
+  function addToCart1() {
+    cust_order.push(bag1);
+    addToCart();
+  }
+  
+  function addToCart2() {
+    cust_order.push(bag2);
+    addToCart();
+  }
+  
+  function addToCart3() {
+    cust_order.push(bag3);
+    addToCart();
+  }
+  
+  function addToCart4() {
+    cust_order.push(bag4);
+    addToCart();
+  }
+  
+  function addToCart5() {
+    cust_order.push(bag5);
+    addToCart();
+  }
+  
+  function addToCart6() {
+    cust_order.push(bag6);
+    addToCart();
+  }
+  
+  function addToCart7() {
+    cust_order.push(shoes1);
+    addToCart();
+  }
+  
+  function addToCart8() {
+    cust_order.push(shoes2);
+    addToCart();
+  }
+  
+  function addToCart9() {
+    cust_order.push(shoes3);
+    addToCart();
+  }
+  
+  function addToCart10() {
+    cust_order.push(shoes4);
+    addToCart();
+  }
+  
+  function addToCart11() {
+    cust_order.push(shoes5);
+    addToCart();
+  }
+  
+  function addToCart12() {
+    cust_order.push(shoes6);
+    addToCart();
+  }
+  function addToCart13() {
+    cust_order.push(cook1);
+    addToCart();
+  }
+  function addToCart14() {
+    cust_order.push(cook2);
+    addToCart();
+  }
+  function addToCart15() {
+    cust_order.push(cook3);
+    addToCart();
+  }
+  function addToCart16() {
+    cust_order.push(cook4);
+    addToCart();
+  }
+  function addToCart17() {
+    cust_order.push(cook5);
+    addToCart();
+  }
+  function addToCart18() {
+    cust_order.push(cook6);
+    addToCart();
+  }
+  function addToCart19() {
+    cust_order.push(app1);
+    addToCart();
+  }
+  function addToCart20() {
+    cust_order.push(app2);
+    addToCart();
+  }
+  function addToCart21() {
+    cust_order.push(app3);
+    addToCart();
+  }
+  function addToCart22() {
+    cust_order.push(app4);
+    addToCart();
+  }
+  function addToCart23() {
+    cust_order.push(app5);
+    addToCart();
+  }
+  function addToCart24() {
+    cust_order.push(app6);
+    addToCart();
+  }
+  
+  
+  
+  function addToCart() {
+    var total = 0;
+    document.getElementById("cart").innerHTML = "";
+    for(var i=0; i<cust_order.length; i++) {
+      total = total + cust_order[i].prod_price;
+      document.getElementById("total").innerHTML = 'PHP ' + total;
+      document.getElementById("cart").innerHTML += '<li class="post">'+ cust_order[i].prod_name +'<br> PHP '+ cust_order[i].prod_price + '<br><button type="button" class="btn btn-sm btn-outline-danger shadow-none" onclick="removeFromCart('+ i +', '+ total +')">Remove</button></li>'
+      console.log('easadsdasghaa');
+    }
+  }
+
+  function removeFromCart(i, total){
+    
+    var p = cust_order[i].prod_price;
+    var total1 = 0;
+    var total1 = total - p;
+    document.getElementById("total").innerHTML = total1;
+
+    cust_order.splice(i,1);
+    addToCart();
+  }
+  
+  function checkout() {
+    document.getElementById("cust_order").value = JSON.stringify(cust_order);
+    console.log("checkout or smth");
+  }
+
+</script>
+</head>
+
+<body>
+  <header>
+    <div class="container-fluid">
+      <nav class="navbar">
+
+        <div class="row flexD">
+          <div class="col-sm-4">
+            <a href="index.html">
+              <img style="height:144px; margin-left:35px;"
+                src="https://cdn.discordapp.com/attachments/951856234527596604/981140964477370368/unknown.png" alt="logo">
+            </a>
+          </div>
+          <div class="col-sm-4">
+            <h2 class="display-4" style="color:black; font-weight: bold; text-align:center; margin-left:35px;">SaLe-C
+            </h2>
+          </div>
+
+          <div class="col-sm-4">
+            <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span style="padding-top: 12.5px; margin-left: 25px;" class="navbar-toggler-icon">More</span>
+            </button>
+
+          </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                style="color: black; font-family: 'Raleway';">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="shopping.html" style="color: black; font-family: 'Raleway';">Shop Now!</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="author.html" style="color: black; font-family: 'Raleway';">About Us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+
+  </header>
+
+  <div class="container-fluid text-sm-start" style="margin-top:10px; margin-bottom:10px">
+    <h1 class="display-4"
+      style="color:lightsalmon;  float:inline-end; font-weight: bold;font-family:'Montserrat';font-size: 5vw;">SaLe-C
+    </h1>
+    <h3 class="display-4" style="color:white; float:inline-end; font-size:larger;">Fast online shopping for the latest
+      goods!</h3>
+  </div>
+
+  <div class="container" style="margin-top:15px; margin-bottom:15px;">
+    <div class="row">
+      <div class="col-sm-9">
+        <br>
+
+        <a data-bs-toggle="collapse" href="#bags" aria-controls="bags" aria-expanded="false">
+          <h2>Bag Alert!</h2>
+        </a>
+        <div class="collapse in" id="bags">
+          <br>
+          <div class="d-flex justify-content-center">
+            <div class="row">
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img
+                      src="https://cdn.shopify.com/s/files/1/0208/6834/products/Gucci_Brown_GG_Monogram_Canvas_Web_Medium_Boston_Bag-2.jpg?v=1576653301"
+                      class="img-fluid" alt="bag1"><br>Gucci Canvas Boston Bag
+                    <p>Price: Php 25 000</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart1()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img src="https://cdn.discordapp.com/attachments/758884296223490069/981930251934380112/unknown.png" class="img-fluid" alt="bag2"><br>Jansport Mens City Backpack
+                    <p>Price: Php 3 500</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart2()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img src="https://cdn.discordapp.com/attachments/758892916306346004/981930463256010762/unknown.png" class="img-fluid" alt="bag3"><br>Prada Tessuto Nylon Shoulder Bag
+                    <p>Price: Php 9 500</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart3()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img
+                      src="https://cdn.shopify.com/s/files/1/2534/3568/products/bdfc42507028b3c3ad1692dbd1081cbc_880x880.jpg?v=1511969872"
+                      class="img-fluid" alt="bag4"><br>American Flyer Gold Coast Luggage Set
+                    <p>Price: Php 14 000</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart4()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img src="https://ph-test-11.slatic.net/p/3982eea3b0320547cf72b16b1564fc56.jpg" class="img-fluid"
+                      alt="bag5"><br>Nike Max Air Vapor Power Backpack
+                    <p>Price: Php 1 500</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart5()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img src="https://i.ebayimg.com/images/g/cYQAAOSwPh5ZH2VL/s-l400.jpg" class="img-fluid"
+                      alt="bag6"><br>Coach Ashley Leather Carryall Handbag
+                    <p>Price: Php 1 800</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart6()">Add to cart!</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr style="width:100%;height: 1px;border-width:0;color:grey;background-color:grey;">
+
+        <a data-bs-toggle="collapse" href="#shoes" aria-controls="shoes" aria-expanded="false">
+          <h2>Shoes Cruise!</h2>
+        </a>
+        <div class="collapse in" id="shoes">
+
+          <div class="justify-content-center">
+            <div class="row">
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img src="https://www.loopkinglaces.com/wp-content/uploads/Off-White-Zip-Tie-Red.jpg"
+                      class="img-fluid" alt="shoe1"><br>Air Jordan 1 Off-White Sneakers
+                    <p>Price: Php 9 300</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart7()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img src="https://www.tradeinn.com/f/10/104739/crocs-crocband-clogs.jpg" class="img-fluid"
+                      alt="shoe2"><br>Crocs Crocband Clog
+                    <p>Price: Php 250</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart8()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img src="https://cdn.discordapp.com/attachments/769149282435465219/980867472469131275/unknown.png"
+                      class="img-fluid" alt="shoe3"><br>Panache Snakeskin Sneakers
+                    <p>Price: Php 3 400</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart9()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img
+                      src="https://ae01.alicdn.com/kf/HTB1JXWtJpXXXXbwaXXXq6xXFXXXn/2015-Impera-so-kate-Pumps-Red-Bottom-High-Heels-ombre-Pigalle-Pumps-Pointed-Toe-Gradient-Patent.jpg"
+                      class="img-fluid" alt="shoe4"><br>Impera Red Bottom High Heels
+                    <p>Price: Php 40 000</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart10()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/81BABqeWJ5L._UL1500_.jpg"
+                      class="img-fluid" alt="shoe5"><br>Yeezy Boost 350 Zebra Sneaker
+                    <p>Price: Php 21 500</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart11()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img
+                      src="https://cdn11.bigcommerce.com/s-8lwkyk05bo/images/stencil/1280x1280/attribute_rule_images/138258_source_1639327418.jpg"
+                      class="img-fluid" alt="shoe6"><br>Avenger Foundation Boots
+                    <p>Price: Php 6 800</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart12()">Add to cart!</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr style="width:100%;height: 1px;border-width:0;color:grey;background-color:grey;">
+
+        <a data-bs-toggle="collapse" href="#cooking" aria-controls="cooking" aria-expanded="false">
+          <h2>Cooking Appliances!</h2>
+        </a>
+        <div class="collapse in" id="cooking">
+
+          <div class="d-flex justify-content-center">
+            <div class="row">
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img src="https://www.hestianco.com.au/assets/thumbL/Tefal-C6363802.jpg" class="img-fluid"
+                      alt="cook1"><br>Tefal Everest Non-Stick Frying Pan
+                    <p>Price: Php 2 960</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart13()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img
+                      src="https://cdn.shopify.com/s/files/1/1241/8236/products/VermontCastings2040-CAT-C_650x650.png"
+                      class="img-fluid" alt="cook2"><br>Vermont Castings Encore Flexburn Stove
+                    <p>Price: Php 220 000</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart14()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img src="https://m.media-amazon.com/images/I/61XSN-IsoeL._AC_SX466_.jpg" class="img-fluid"
+                      alt="cook3"><br>Manveera Rubber Spatula Set
+                    <p>Price: Php 150</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart15()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img src="https://i.etsystatic.com/6153853/r/il/bcab1c/1125274275/il_300x300.1125274275_9j5l.jpg"
+                      class="img-fluid" alt="cook4"><br>Jones Sapele Cutting Board
+                    <p>Price: Php 500</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart16()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img src="https://m.media-amazon.com/images/I/71qHugJLjnL._SL1358_.jpg" class="img-fluid"
+                      alt="cook4"><br>Madhu Steel Steamer
+                    <p>Price: Php 2 800</p>
+
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart17()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img src="https://i.pinimg.com/originals/6c/41/41/6c4141e454e388a53ebe0a3655c98ad2.jpg"
+                      class="img-fluid" alt="cook4"><br>Gourmet Art Dinnerware Set
+                    <p>Price: Php 5 000</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart18()">Add to cart!</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr style="width:100%;height: 1px;border-width:0;color:grey;background-color:grey;">
+
+        <a data-bs-toggle="collapse" href="#apps" aria-controls="apps" aria-expanded="false">
+          <h2>More Appliances!</h2>
+        </a>
+        <div class="collapse in" id="apps">
+
+          <div class="d-flex justify-content-center">
+            <div class="row">
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img src="https://bluehire.co.uk/wp-content/uploads/2020/09/PS5-Hire.png" class="img-fluid"
+                      alt="app1"><br>Playstation 5
+                    <p>Price: Php 26 300</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart19()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img
+                      src="https://www.progressivelighting.com/media/catalog/product/cache/fc029e0cbc5f9040ebaf662678d2dbe8/8/6/8680-mt-ga.jpg"
+                      class="img-fluid" alt="app2"><br>Alston Mini Chandeliers
+                    <p>Price: Php 20 500</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart20()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img src="https://cdn.rona.ca/images/22945233_L.jpg" class="img-fluid" alt="app3"><br>Samsung Black
+                    Stainless Refrigerator
+                    <p>Price: Php 159 858</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart21()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img
+                      src="https://www.courts.com.sg/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/i/p/ip154207_00.jpg"
+                      class="img-fluid" alt="app4"><br>SONA Portable Aircon
+                    <p>Price: Php 17 800</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart22()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img src="https://i.expansys.net/img/b/328817/xbox-series-x-console.jpg" class="img-fluid"
+                      alt="app5"><br>XBox Series X
+                    <p>Price: Php 25 000</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart23()">Add to cart!</button></div>
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="card p-2">
+                  <div class="ptext">
+                    <img
+                      src="https://i5.walmartimages.com/asr/241fd0ef-1673-4985-a14e-ec76819fbe5e_1.4cd0b8cd111c1bc9ff56bf56460a8977.jpeg"
+                      class="img-fluid" alt="app6"><br>Bath Bliss 8 Function Deluxe Shower Head
+                    <p>Price: Php 945</p>
+                  </div>
+                  <div><button class="btn shadow-none addCart" onclick="addToCart24()">Add to cart!</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr style="width:100%;height: 1px;border-width:0;color:grey;background-color:grey;">
+
+        <br>
+      </div>
+
+      <div class="col-sm-3">
+        <br>
+        <h2>Cart</h2>
+        <hr style="width:100%;height: 1px;border-width:0;color:grey;background-color:grey;">
+        <div class=carthow>
+          <ul id="cart">
+            <li></li>
+          </ul>
+        </div>
+        <br>
+        <h5>Total Price</h5>
+        <p id="total"></p>
+        <br><br>
+        <a data-bs-toggle="collapse" href="#how" aria-controls="how" aria-expanded="false">
+          <h2>Delivery Details</h2>
+        </a>
+        <div class="collapse.show" id="how">
+          <form id="deliveryForm" onsubmit="checkout()" method="GET" action="http://sirjm.infinityfreeapp.com/checkout.php">
+            <hr style="width:100%;height: 1px;border-width:0;color:grey;background-color:grey;">
+            <div class="my-3">
+              <label for="txtname" class="form-label">Name:</label>
+              <input style="font-size:15px;" id="txtname" class="form-control shadow-none" type="text" name="cust_name"
+                placeholder="eg. Francis Pogi">
+            </div>
+            <div class="my-3">
+              <label for="txtemail" class="form-label">Email Address:</label>
+              <input style="font-size:15px;" id="txtemail" class="form-control shadow-none" name="cust_email"
+                placeholder="example@site.com">
+            </div>
+            <div class="my-3">
+              <label for="txtaddress" class="form-label">Delivery Address:</label>
+              <input style="font-size:15px;" id="txtaddress" class="form-control shadow-none" type="text" name="cust_addr"
+                placeholder="eg. Mondstadt">
+                <input type="hidden" id="cust_order" name="cust_order">
+            </div>
+            <br>
+            <button class="btn btn-primary shadow-none" id="add"><span>Place Order!</span></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
